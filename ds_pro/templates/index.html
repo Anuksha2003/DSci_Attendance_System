@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Upload Photo</title>
+    <style>
+        body {
+            background-color: lightgray;
+        }
+
+        .upload-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        .upload-form {
+            background-color: antiquewhite;
+            border: 2px solid gray;
+            height: 500px;
+            width: 40%;
+            /* Adjust width as needed */
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        .registration-form {
+            background-color: antiquewhite;
+            border: 2px solid gray;
+            height: 500px;
+            width: 40%;
+            /* Adjust width as needed */
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="upload-container">
+        <div class="upload-form">
+            <h1>Upload Photo</h1>
+            {% if error1 %}
+            <p style="color: red;">{{ error1 }}</p>
+            {% endif %}
+            {% if success1 %}
+            <p style="color: green;">{{ success1 }}</p>
+            {% endif %}
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit" value="Upload">
+            </form>
+        </div>
+
+        <div class="registration-form">
+            <h1>NEW USER</h1>
+                        {% if error2 %}
+                        <p style="color: red;">{{ error2 }}</p>
+                        {% endif %}
+                        {% if success2 %}
+                        <p style="color: green;">{{ success2 }}</p>
+                        {% endif %}
+            <form action="/register" method="post" enctype="multipart/form-data">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br><br>
+
+                <label for="mis">MIS:</label><br>
+                <input type="text" id="mis" name="mis"><br><br>
+
+                <label for="image">Upload Image:</label><br>
+                <input type="file" id="image" name="image"><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

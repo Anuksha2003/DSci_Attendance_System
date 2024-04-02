@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.faculty {
+    background-color: #28a745;
+}
+
+.faculty:hover {
+    background-color: #218838;
+}
+
+.student {
+    background-color: #dc3545;
+}
+
+.student:hover {
+    background-color: #c82333;
+}
