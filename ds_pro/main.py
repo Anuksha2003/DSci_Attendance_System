@@ -228,6 +228,8 @@ import os
 
 
 REGISTERED_USERS_FILE = "registered_users.txt"
+info_file = "registered_users.txt"
+
 
 app = Flask(__name__)
 
@@ -270,39 +272,133 @@ def register():
         if name and mis and image:
             image.save(os.path.join('images', image.filename))
             with open(REGISTERED_USERS_FILE , 'a') as f:
-                f.write(f"Name: {name}, MIS: {mis}, Image: {image.filename}\n")
+                f.write(f"\nName: {name}, MIS: {mis}, Image: {image.filename}\n")
             return render_template('index.html', success2="Registration successful")
         else:
             return render_template('index.html', error2="Please fill in all fields")
     else:
         return 'Method not allowed'
 
+# def check_attendance(file):
+#     group_img = cv2.imread(file)
+#     rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
+#     group_encoding = face_recognition.face_encodings(rgb_group_img)
+
+#     images = {
+#         "images/virat-kohli.jpeg": "Virat Kohli",
+#         "images/abd.jpeg": "AB de Villiers",
+#         "images/dhoni.jpeg": "MS Dhoni",
+#         "images/rohit.jpeg": "Rohit Sharma"
+#     }
+
+#     present_names = []
+
+#     for image_path, name in images.items():
+#         img = cv2.imread(image_path)
+#         rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+#         img_encoding = face_recognition.face_encodings(rgb_img)[0]
+
+#         for group_enc in group_encoding:
+#             result = face_recognition.compare_faces([group_enc], img_encoding)
+#             if result[0]:
+#                 present_names.append(name)
+#                 break
+
+#     return present_names
+
+# -----------------best-------
+# def check_attendance(file):
+#     group_img = cv2.imread(file)
+#     rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
+#     group_encodings = face_recognition.face_encodings(rgb_group_img)
+
+#     images_folder = "images"
+#     image_files = os.listdir(images_folder)
+
+#     present_names = []
+
+#     for group_encoding in group_encodings:
+#         for i, image_file in enumerate(image_files):
+#             img_path = os.path.join(images_folder, image_file)
+#             img = cv2.imread(img_path)
+#             rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+#             img_encoding = face_recognition.face_encodings(rgb_img)[0]
+
+#             result = face_recognition.compare_faces([group_encoding], img_encoding)
+#             if result[0]:
+#                 present_names.append(f"Person {i+1}")
+
+#     return present_names
+
+def parse_info_file(info_file):
+    image_info = {}
+    with open(info_file, 'r') as file:
+        for line in file:
+            if line.strip():
+                parts = line.strip().split(',')
+                name = parts[0].split(': ')[1].strip()
+                image = parts[2].split(': ')[1].strip()
+                image_info[image] = name
+    # print("Image Info:", image_info)            
+    return image_info
+
+# def check_attendance(group_image):
+#     group_img = cv2.imread(group_image)
+#     rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
+#     group_encoding = face_recognition.face_encodings(rgb_group_img)[0]
+
+#     image_info = parse_info_file(info_file)
+#     images_folder = "images"
+#     image_files = os.listdir(images_folder)
+
+#     present_names = []
+
+#     # Store encodings for all images in the group photo
+#     encodings = []
+#     for image_file in image_files:
+#         img_path = os.path.join(images_folder, image_file)
+#         img = cv2.imread(img_path)
+#         rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+#         img_encoding = face_recognition.face_encodings(rgb_img)[0]
+#         encodings.append(img_encoding)
+
+#     # Compare encodings with the group encoding
+#     for img_encoding, image_file in zip(encodings, image_files):
+#         result = face_recognition.compare_faces([group_encoding], img_encoding)
+#         if result[0] and image_file in image_info:
+#             present_names.append(image_info[image_file])
+
+#     return present_names
+
 def check_attendance(file):
     group_img = cv2.imread(file)
     rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
-    group_encoding = face_recognition.face_encodings(rgb_group_img)
+    group_encodings = face_recognition.face_encodings(rgb_group_img)
 
-    images = {
-        "images/virat-kohli.jpeg": "Virat Kohli",
-        "images/abd.jpeg": "AB de Villiers",
-        "images/dhoni.jpeg": "MS Dhoni",
-        "images/rohit.jpeg": "Rohit Sharma"
-    }
+    image_info = parse_info_file(info_file)
+
+    images_folder = "images"
+    image_files = os.listdir(images_folder)
 
     present_names = []
 
-    for image_path, name in images.items():
-        img = cv2.imread(image_path)
-        rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        img_encoding = face_recognition.face_encodings(rgb_img)[0]
+    for group_encoding in group_encodings:
+        for image_file in image_files:
+            img_path = os.path.join(images_folder, image_file)
+            img = cv2.imread(img_path)
+            rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            img_encoding = face_recognition.face_encodings(rgb_img)[0]
 
-        for group_enc in group_encoding:
-            result = face_recognition.compare_faces([group_enc], img_encoding)
+            result = face_recognition.compare_faces([group_encoding], img_encoding)
             if result[0]:
-                present_names.append(name)
-                break
+                name = image_info.get(image_file)
+                # print("Matched Image:", image_file, "Name from image_info:", name)  # Debugging line
+                if name:
+                    present_names.append(name)
 
+    # print("Present Names:", present_names)  # Debugging line
     return present_names
+
 
 def update_attendance_file(present_names):
     current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
