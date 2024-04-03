@@ -7,3 +7,6 @@ Name: abd, MIS: 5, Image: abd.jpeg
 Name: anuksha, MIS: 6, Image: anuksha.jpeg
 
 Name: arsh, MIS: 7, Image: arsh.jpeg
+Name: gauri, MIS: 8, Image: gauri.jpeg
+
+Name: polard, MIS: 10, Image: polard.jpeg
