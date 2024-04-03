@@ -1,231 +1,11 @@
-# import cv2
-# import face_recognition
-
-
-# img = cv2.imread("virat.jpeg")
-# rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-# img_encoding = face_recognition.face_encodings(rgb_img)[0]
-
-# img2 = cv2.imread("images/virat-kohli.jpeg")
-# rgb_img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
-# img_encoding2 = face_recognition.face_encodings(rgb_img2)[0]
-
-# img3 = cv2.imread("images/abd.jpeg")
-# rgb_img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2RGB)
-# img_encoding3 = face_recognition.face_encodings(rgb_img3)[0]
-
-# img4 = cv2.imread("images/dhoni.jpeg")
-# rgb_img4 = cv2.cvtColor(img4, cv2.COLOR_BGR2RGB)
-# img_encoding4 = face_recognition.face_encodings(rgb_img4)[0]
-
-# img5 = cv2.imread("images/rohit.jpeg")
-# rgb_img5 = cv2.cvtColor(img5, cv2.COLOR_BGR2RGB)
-# img_encoding5 = face_recognition.face_encodings(rgb_img5)[0]
-
-
-# images_encodings = [img_encoding2, img_encoding3, img_encoding4, img_encoding5]
-# images_names = ["Virat Kohli", "AB de Villiers", "MS Dhoni", "Rohit Sharma"]
-
-# for i, encoding in enumerate(images_encodings):
-#     result = face_recognition.compare_faces([img_encoding], encoding)
-#     if result[0]:
-#         print("Name:", images_names[i])
-
-
-# import cv2
-# import face_recognition
-
-# group_img = cv2.imread("virat_rohit.jpeg")
-# rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
-# group_encodings = face_recognition.face_encodings(rgb_group_img)
-
-
-# img2 = cv2.imread("images/virat-kohli.jpeg")
-# rgb_img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
-# img_encoding2 = face_recognition.face_encodings(rgb_img2)[0]
-
-# img3 = cv2.imread("images/abd.jpeg")
-# rgb_img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2RGB)
-# img_encoding3 = face_recognition.face_encodings(rgb_img3)[0]
-
-# img4 = cv2.imread("images/dhoni.jpeg")
-# rgb_img4 = cv2.cvtColor(img4, cv2.COLOR_BGR2RGB)
-# img_encoding4 = face_recognition.face_encodings(rgb_img4)[0]
-
-# img5 = cv2.imread("images/rohit.jpeg")
-# rgb_img5 = cv2.cvtColor(img5, cv2.COLOR_BGR2RGB)
-# img_encoding5 = face_recognition.face_encodings(rgb_img5)[0]
-
-# images_encodings = [img_encoding2, img_encoding3, img_encoding4, img_encoding5]
-# images_names = ["Virat Kohli", "AB de Villiers", "MS Dhoni", "Rohit Sharma"]
-
-# for group_encoding in group_encodings:
-#     for i, encoding in enumerate(images_encodings):
-#         result = face_recognition.compare_faces([group_encoding], encoding)
-#         if result[0]:
-#             print("Name:", images_names[i])
-#             break  
-
-# import cv2
-# import face_recognition
-
-# group_img = cv2.imread("group.jpeg")
-# rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
-# group_encoding = face_recognition.face_encodings(rgb_group_img)
-
-
-# img2 = cv2.imread("images/virat-kohli.jpeg")
-# rgb_img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
-# img_encoding2 = face_recognition.face_encodings(rgb_img2)[0]
-
-# img3 = cv2.imread("images/abd.jpeg")
-# rgb_img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2RGB)
-# img_encoding3 = face_recognition.face_encodings(rgb_img3)[0]
-
-# img4 = cv2.imread("images/dhoni.jpeg")
-# rgb_img4 = cv2.cvtColor(img4, cv2.COLOR_BGR2RGB)
-# img_encoding4 = face_recognition.face_encodings(rgb_img4)[0]
-
-# img5 = cv2.imread("images/rohit.jpeg")
-# rgb_img5 = cv2.cvtColor(img5, cv2.COLOR_BGR2RGB)
-# img_encoding5 = face_recognition.face_encodings(rgb_img5)[0]
-
-
-# images_encodings = [img_encoding2, img_encoding3, img_encoding4, img_encoding5]
-# images_names = ["Virat Kohli", "AB de Villiers", "MS Dhoni", "Rohit Sharma"]
-
-
-# present_names = []
-
-
-# for i, encoding in enumerate(images_encodings):
-#     for group_enc in group_encoding:
-#         result = face_recognition.compare_faces([group_enc], encoding)
-#         if result[0]:
-#             present_names.append(images_names[i])
-#             break  
-
-
-# with open("group_photo_names.txt", "w") as file:
-#     for name in present_names:
-#         file.write(name + "\n")
-
-# print("Names of persons present in the group photo have been written to 'group_photo_names.txt'.")
-
-
-
-# import cv2
-# import face_recognition
-# from datetime import datetime
-
-
-# group_img = cv2.imread("group.jpeg")
-# rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
-# group_encoding = face_recognition.face_encodings(rgb_group_img)
-
-
-# img2 = cv2.imread("images/virat-kohli.jpeg")
-# rgb_img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
-# img_encoding2 = face_recognition.face_encodings(rgb_img2)[0]
-
-# img3 = cv2.imread("images/abd.jpeg")
-# rgb_img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2RGB)
-# img_encoding3 = face_recognition.face_encodings(rgb_img3)[0]
-
-# img4 = cv2.imread("images/dhoni.jpeg")
-# rgb_img4 = cv2.cvtColor(img4, cv2.COLOR_BGR2RGB)
-# img_encoding4 = face_recognition.face_encodings(rgb_img4)[0]
-
-# img5 = cv2.imread("images/rohit.jpeg")
-# rgb_img5 = cv2.cvtColor(img5, cv2.COLOR_BGR2RGB)
-# img_encoding5 = face_recognition.face_encodings(rgb_img5)[0]
-
-
-# images_encodings = [img_encoding2, img_encoding3, img_encoding4, img_encoding5]
-# images_names = ["Virat Kohli", "AB de Villiers", "MS Dhoni", "Rohit Sharma"]
-
-
-# present_names = []
-
-
-# for i, encoding in enumerate(images_encodings):
-#     for group_enc in group_encoding:
-#         result = face_recognition.compare_faces([group_enc], encoding)
-#         if result[0]:
-#             present_names.append(images_names[i])
-#             break  
-
-# current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-# file_name = "group_photo_names.txt"
-# with open(file_name, "a") as file:
-#     file.write(f"Date-Time: {current_datetime}\n")
-#     for name in present_names:
-#         file.write(name + "\n")
-
-# print(f"Names of persons present in the group photo along with the current date have been appended to '{file_name}'.")
-
-# from flask import Flask, render_template, request
-# import cv2
-# import face_recognition
-# from datetime import datetime
-
-# def main():
-#     group_img = cv2.imread("virat-rohit.jpeg")
-#     rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
-#     group_encoding = face_recognition.face_encodings(rgb_group_img)
-
-#     img2 = cv2.imread("images/virat-kohli.jpeg")
-#     rgb_img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
-#     img_encoding2 = face_recognition.face_encodings(rgb_img2)[0]
-
-#     img3 = cv2.imread("images/abd.jpeg")
-#     rgb_img3 = cv2.cvtColor(img3, cv2.COLOR_BGR2RGB)
-#     img_encoding3 = face_recognition.face_encodings(rgb_img3)[0]
-
-#     img4 = cv2.imread("images/dhoni.jpeg")
-#     rgb_img4 = cv2.cvtColor(img4, cv2.COLOR_BGR2RGB)
-#     img_encoding4 = face_recognition.face_encodings(rgb_img4)[0]
-
-#     img5 = cv2.imread("images/rohit.jpeg")
-#     rgb_img5 = cv2.cvtColor(img5, cv2.COLOR_BGR2RGB)
-#     img_encoding5 = face_recognition.face_encodings(rgb_img5)[0]
-
-#     images_encodings = [img_encoding2, img_encoding3, img_encoding4, img_encoding5]
-#     images_names = ["Virat Kohli", "AB de Villiers", "MS Dhoni", "Rohit Sharma"]
-
-#     present_names = []
-
-#     for i, encoding in enumerate(images_encodings):
-#         for group_enc in group_encoding:
-#             result = face_recognition.compare_faces([group_enc], encoding)
-#             if result[0]:
-#                 present_names.append(images_names[i])
-#                 break  
-
-    
-#     current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    
-#     file_name = "group_photo_names.txt"
-#     with open(file_name, "a") as file:
-#         file.write(f"Date-Time: {current_datetime}\n")
-#         for name in present_names:
-#             file.write(name + "\n")
-
-#     print(f"Names of persons present in the group photo along with the current date and time have been appended to '{file_name}'.")
-
-# if __name__ == "__main__":
-#     main()
-
-
 
 from flask import Flask, render_template, request
 import cv2
 import face_recognition
 from datetime import datetime
 import os
-
+import pandas as pd
+from openpyxl import load_workbook
 
 REGISTERED_USERS_FILE = "registered_users.txt"
 info_file = "registered_users.txt"
@@ -260,7 +40,7 @@ def upload_file():
 
             # Append attendance to file
             update_attendance_file(present_names)
-
+            update_excel_sheet(present_names)
             return render_template('index.html', success1="Attendance marked successfully")
 
 @app.route('/register', methods=['POST'])
@@ -279,56 +59,7 @@ def register():
     else:
         return 'Method not allowed'
 
-# def check_attendance(file):
-#     group_img = cv2.imread(file)
-#     rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
-#     group_encoding = face_recognition.face_encodings(rgb_group_img)
 
-#     images = {
-#         "images/virat-kohli.jpeg": "Virat Kohli",
-#         "images/abd.jpeg": "AB de Villiers",
-#         "images/dhoni.jpeg": "MS Dhoni",
-#         "images/rohit.jpeg": "Rohit Sharma"
-#     }
-
-#     present_names = []
-
-#     for image_path, name in images.items():
-#         img = cv2.imread(image_path)
-#         rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-#         img_encoding = face_recognition.face_encodings(rgb_img)[0]
-
-#         for group_enc in group_encoding:
-#             result = face_recognition.compare_faces([group_enc], img_encoding)
-#             if result[0]:
-#                 present_names.append(name)
-#                 break
-
-#     return present_names
-
-# -----------------best-------
-# def check_attendance(file):
-#     group_img = cv2.imread(file)
-#     rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
-#     group_encodings = face_recognition.face_encodings(rgb_group_img)
-
-#     images_folder = "images"
-#     image_files = os.listdir(images_folder)
-
-#     present_names = []
-
-#     for group_encoding in group_encodings:
-#         for i, image_file in enumerate(image_files):
-#             img_path = os.path.join(images_folder, image_file)
-#             img = cv2.imread(img_path)
-#             rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-#             img_encoding = face_recognition.face_encodings(rgb_img)[0]
-
-#             result = face_recognition.compare_faces([group_encoding], img_encoding)
-#             if result[0]:
-#                 present_names.append(f"Person {i+1}")
-
-#     return present_names
 
 def parse_info_file(info_file):
     image_info = {}
@@ -342,33 +73,7 @@ def parse_info_file(info_file):
     # print("Image Info:", image_info)            
     return image_info
 
-# def check_attendance(group_image):
-#     group_img = cv2.imread(group_image)
-#     rgb_group_img = cv2.cvtColor(group_img, cv2.COLOR_BGR2RGB)
-#     group_encoding = face_recognition.face_encodings(rgb_group_img)[0]
 
-#     image_info = parse_info_file(info_file)
-#     images_folder = "images"
-#     image_files = os.listdir(images_folder)
-
-#     present_names = []
-
-#     # Store encodings for all images in the group photo
-#     encodings = []
-#     for image_file in image_files:
-#         img_path = os.path.join(images_folder, image_file)
-#         img = cv2.imread(img_path)
-#         rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-#         img_encoding = face_recognition.face_encodings(rgb_img)[0]
-#         encodings.append(img_encoding)
-
-#     # Compare encodings with the group encoding
-#     for img_encoding, image_file in zip(encodings, image_files):
-#         result = face_recognition.compare_faces([group_encoding], img_encoding)
-#         if result[0] and image_file in image_info:
-#             present_names.append(image_info[image_file])
-
-#     return present_names
 
 def check_attendance(file):
     group_img = cv2.imread(file)
@@ -399,6 +104,40 @@ def check_attendance(file):
     # print("Present Names:", present_names)  # Debugging line
     return present_names
 
+
+
+
+def update_excel_sheet(present_names):
+    current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    group_photo_names = "group_photo_names.txt"
+
+    # Read registered users from file
+    registered_users_file = "registered_users.txt"
+    df_users = pd.read_csv(registered_users_file, header=None, names=['Name', 'MIS', 'Image'])
+
+    # Check if the Excel file already exists, otherwise create a new one
+    excel_file = "attendance.xlsx"
+    if not os.path.exists(excel_file):
+        df = pd.DataFrame(columns=['Date-Time'])
+    else:
+        df = pd.read_excel(excel_file)
+
+    # Add new column for current datetime
+    df[current_datetime] = ''
+
+    # Mark "P" for present corresponding to the student in the photo
+    for name in present_names:
+        index = df_users.index[df_users['Name'] == name].tolist()
+        if index:
+            df.iloc[index[0], df.columns.get_loc(current_datetime)] = 'P'
+
+    # Save to Excel file
+    with pd.ExcelWriter(excel_file, engine='openpyxl', mode='a') as writer:
+        writer.book = load_workbook(excel_file)
+        writer.sheets = {ws.title: ws for ws in writer.book.worksheets}
+        df.to_excel(writer, index=False, header=writer.sheets['Sheet1'].dimensions == 'A1')
+
+    print(f"Attendance marked for the uploaded photo. Check '{excel_file}'.")
 
 def update_attendance_file(present_names):
     current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")

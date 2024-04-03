@@ -5,3 +5,5 @@ Name: dhoni, MIS: 4, Image: dhoni.jpeg
 Name: abd, MIS: 5, Image: abd.jpeg
 
 Name: anuksha, MIS: 6, Image: anuksha.jpeg
+
+Name: arsh, MIS: 7, Image: arsh.jpeg
