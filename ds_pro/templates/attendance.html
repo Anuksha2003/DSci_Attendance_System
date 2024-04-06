@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+</head>
+
+<body>
+    <h1>Attendance</h1>
+    <p>Attendance for {{ today_date }}:</p>
+    <ol>
+        {% for name in present_names_today %}
+        <li>{{ name }}</li>
+        {% endfor %}
+    </ol>
+</body>
+
+</html>

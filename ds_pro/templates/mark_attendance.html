@@ -1,0 +1,93 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance</title>
+</head>
+
+<body>
+    <h1>Mark Attendance</h1>
+    {% if error1 %}
+    <p style="color: red;">{{ error1 }}</p>
+    {% endif %}
+    {% if success1 %}
+    <p style="color: green;">{{ success1 }}</p>
+    {% endif %}
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file-upload">Upload Group Photo:</label><br>
+        <input id="file-upload" type="file" name="file"><br><br>
+        <input type="submit" value="Mark Attendance">
+    </form>
+
+    <!-- Button to show today's attendance -->
+    <form action="/show-attendance" method="get">
+        <input type="submit" value="Show Today's Attendance">
+    </form>
+</body>
+
+</html> 
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Mark Attendance</h1>
+    {% if error1 %}
+    <p style="color: red;">{{ error1 }}</p>
+    {% endif %}
+    {% if success1 %}
+    <p style="color: green;">{{ success1 }}</p>
+    {% endif %}
+    <form id="attendance-form" action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file-upload">Upload Group Photo:</label><br>
+        <input id="file-upload" type="file" name="file"><br><br>
+        <input id="mark-attendance-btn" type="submit" value="Mark Attendance">
+    </form>
+
+     Button to show today's attendance 
+    <button id="show-attendance-btn">Show Today's Attendance</button>
+
+    <div id="attendance-info"></div>
+
+    <script>
+        $(document).ready(function () {
+            // AJAX request to show today's attendance
+            $("#show-attendance-btn").click(function () {
+                $.get("/show-attendance", function (data) {
+                    $("#attendance-info").text(data.attendance_message);
+                });
+            });
+
+            // Prevent default form submission and handle it via AJAX
+            $("#attendance-form").submit(function (e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    url: "/upload",
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        // Update success or error message on the page
+                        if (response.success1) {
+                            $("#attendance-info").text(response.success1).css("color", "green");
+                        } else if (response.error1) {
+                            $("#attendance-info").text(response.error1).css("color", "red");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html> -->

@@ -1,12 +1,10 @@
-Name: payal, MIS: 1, Image: payal.jpeg
 Name: virat, MIS: 2, Image: virat-kohli.jpeg
 Name: rohit, MIS: 3, Image: rohit.jpeg
 Name: dhoni, MIS: 4, Image: dhoni.jpeg
 Name: abd, MIS: 5, Image: abd.jpeg
-
 Name: anuksha, MIS: 6, Image: anuksha.jpeg
-
 Name: arsh, MIS: 7, Image: arsh.jpeg
 Name: gauri, MIS: 8, Image: gauri.jpeg
-
 Name: polard, MIS: 10, Image: polard.jpeg
+Name: payal, MIS: 1, Image: payal.jpeg
+Name: anagha, MIS: 11, Image: anagha.jpeg
