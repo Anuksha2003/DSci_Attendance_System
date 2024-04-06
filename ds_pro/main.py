@@ -9,7 +9,7 @@ from flask import jsonify
 REGISTERED_USERS_FILE = "registered_users.txt"
 EXCEL_FILE = "attendance.xlsx"
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='static')
 
 @app.route('/')
 def index():
@@ -138,18 +138,19 @@ def update_attendance_file(present_names):
 
 @app.route('/show-attendance')
 def show_attendance():
-    # Read the attendance data from the Excel sheet
     df_attendance = pd.read_excel(EXCEL_FILE)
     
     today_date = pd.to_datetime('today').date().strftime('%Y-%m-%d')
     
     if today_date in df_attendance.columns:
-        present_names_today = df_attendance.loc[df_attendance[today_date] == 'P', 'Name.1'].tolist()
+        present_data_today = df_attendance.loc[df_attendance[today_date] == 'P', ['Name.1', 'MIS.1']]
     else:
-        present_names_today = []
+        present_data_today = pd.DataFrame(columns=['Name.1', 'MIS.1'])
     
-    return render_template('attendance.html', today_date=today_date, present_names_today=present_names_today)
-
+    present_names_today = present_data_today['Name.1'].tolist()
+    present_mis_today = present_data_today['MIS.1'].tolist()
+    
+    return render_template('attendance.html', today_date=today_date, present_names_today=present_names_today, present_mis_today=present_mis_today)
 
 if __name__ == "__main__":
     app.run(debug=True)

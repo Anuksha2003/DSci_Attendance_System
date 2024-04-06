@@ -5,6 +5,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mark Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #DAFFFB;
+            /* Set background color for the body */
+            margin: 0;
+            padding: 0;
+        }
+    
+        h1 {
+            text-align: center;
+            /* Center align the heading */
+            color: #333;
+            /* Change text color for better readability */
+            margin-top: 20px;
+            /* Add some top margin to the heading */
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    
+        form {
+            max-width: 500px;
+            /* Limit the width of the form */
+            margin: 20px auto;
+            /* Center the form horizontally and add some space around it */
+            padding: 20px;
+            /* Add some padding to the form */
+            background-color: #64CCC5;
+            /* Set a background color for the form */
+            border-radius: 10px;
+            /* Add rounded corners to the form */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Add a shadow to the form */
+            align-items: center;
+            text-align: center;
+        }
+    
+        label {
+            font-weight: bold;
+            /* Make labels bold */
+            display: block;
+            /* Display labels as block elements */
+            margin-bottom: 10px;
+            /* Add some bottom margin to labels */
+        }
+    
+        input[type="file"] {
+            width: 70%;
+            /* Make file input full width */
+            padding: 10px;
+            /* Add some padding to input */
+            margin-bottom: 20px;
+            /* Add space between input and next element */
+            border: 1px solid #ccc;
+            /* Add border to input */
+            border-radius: 5px;
+            /* Add rounded corners to input */
+            box-sizing: border-box;
+            /* Include padding and border in width calculation */
+        }
+    
+        input[type="submit"] {
+            background-color: #007bff;
+            /* Set background color for submit button */
+            color: #fff;
+            /* Set text color for submit button */
+            padding: 10px 20px;
+            /* Add padding to submit button */
+            border: none;
+            /* Remove border from submit button */
+            border-radius: 5px;
+            /* Add rounded corners to submit button */
+            cursor: pointer;
+            /* Change cursor to pointer on hover */
+            transition: background-color 0.3s ease;
+            /* Add transition effect to background color */
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+            /* Change background color on hover */
+        }
+    
+        .error-message,
+        .success-message {
+            text-align: center;
+            /* Center align error and success messages */
+            margin-top: 10px;
+            /* Add some top margin to messages */
+        }
+    
+        .error-message {
+            color: red;
+            /* Set color for error messages */
+        }
+    
+        .success-message {
+            color: green;
+            /* Set color for success messages */
+        }
+    </style>
 </head>
 
 <body>
@@ -28,66 +128,4 @@
 </body>
 
 </html> 
-<!-- <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mark Attendance</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-
-<body>
-    <h1>Mark Attendance</h1>
-    {% if error1 %}
-    <p style="color: red;">{{ error1 }}</p>
-    {% endif %}
-    {% if success1 %}
-    <p style="color: green;">{{ success1 }}</p>
-    {% endif %}
-    <form id="attendance-form" action="/upload" method="post" enctype="multipart/form-data">
-        <label for="file-upload">Upload Group Photo:</label><br>
-        <input id="file-upload" type="file" name="file"><br><br>
-        <input id="mark-attendance-btn" type="submit" value="Mark Attendance">
-    </form>
-
-     Button to show today's attendance 
-    <button id="show-attendance-btn">Show Today's Attendance</button>
-
-    <div id="attendance-info"></div>
-
-    <script>
-        $(document).ready(function () {
-            // AJAX request to show today's attendance
-            $("#show-attendance-btn").click(function () {
-                $.get("/show-attendance", function (data) {
-                    $("#attendance-info").text(data.attendance_message);
-                });
-            });
-
-            // Prevent default form submission and handle it via AJAX
-            $("#attendance-form").submit(function (e) {
-                e.preventDefault();
-                var formData = new FormData(this);
-                $.ajax({
-                    url: "/upload",
-                    type: "POST",
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function (response) {
-                        // Update success or error message on the page
-                        if (response.success1) {
-                            $("#attendance-info").text(response.success1).css("color", "green");
-                        } else if (response.error1) {
-                            $("#attendance-info").text(response.error1).css("color", "red");
-                        }
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-
-</html> -->
