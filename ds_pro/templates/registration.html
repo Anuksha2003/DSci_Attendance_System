@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Student</title>
+</head>
+
+<body>
+    <h1>Register New Student</h1>
+    {% if error2 %}
+    <p style="color: red;">{{ error2 }}</p>
+    {% endif %}
+    {% if success2 %}
+    <p style="color: green;">{{ success2 }}</p>
+    {% endif %}
+    <form action="/register-user" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="mis">MIS:</label><br>
+        <input type="text" id="mis" name="mis"><br><br>
+
+        <label for="image">Upload Image:</label><br>
+        <input type="file" id="image" name="image"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
